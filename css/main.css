@@ -9,47 +9,54 @@
 :root {
   --dark-color: #000;
 }
-
 body {
   display: flex;
-  align-items: flex-end;
+  align-items: center; /* Centra verticalmente el contenido */
   justify-content: center;
+  flex-direction: column; /* Asegura que los elementos se apilen verticalmente */
   min-height: 100vh;
   background-color: var(--dark-color);
   overflow: hidden;
   perspective: 1000px;
+  text-align: center; /* Centra el texto horizontalmente */
 }
 
 #lyrics {
   font-size: 28px;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   color: white;
-  position: absolute;
-  margin-bottom: 20%;
-  z-index: 1;
   font-weight: bold;
   letter-spacing: 4px;
+  z-index: 1;
+  position: absolute;
 }
-@media only screen and (max-width: 600px) {
-  /* Estilos específicos para dispositivos con un ancho máximo de 600px */
-  #lyrics {
-      font-size: 14px; /* Reduce el tamaño del texto para dispositivos más pequeños */
-      margin-bottom: 530px;
-      letter-spacing: 3px;
-  }
 
+@media only screen and (max-width: 600px) {
+  #lyrics {
+    font-size: 20px; /* Reduce el tamaño del texto para dispositivos más pequeños */
+    letter-spacing: 3px;
+    margin-top: 600px;
+  }
 }
+
 .titulo {
-  margin-bottom: 750px;
+  padding: 20px;
+  margin: 0; /* Elimina cualquier margen */
+  padding-top: 30px; /* Añade un pequeño espacio en la parte superior */
   font-family: "Arial Narrow", Arial, sans-serif;
   color: yellow;
-  position: absolute;
   font-weight: bold;
-  letter-spacing: 10px;
+  letter-spacing: 6px;
   opacity: 0;
   animation: fadeIn 3s ease-in-out forwards;
   text-align: center;
+  position: absolute;
+  top: 0; /* Alinea el título en la parte superior */
+  left: 50%;
+  transform: translateX(-50%); /* Centra horizontalmente el título */
+  width: 100%; /* Ocupa todo el ancho disponible */
 }
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -103,19 +110,19 @@ body {
 }
 
 .flowers {
+  
   position: relative;
   transform: scale(0.9);
-  /*margin-bottom: 100px;
-  */
+  margin-top: 50%;
+  
 }
 
 @media only screen and (max-width: 600px) {
   /* Estilos específicos para dispositivos con un ancho máximo de 600px */
 .flowers {
-      font-size: 14px;
-      margin-bottom: 35%;
-      letter-spacing: 3px;
-      transform: scale(1.0);
+  margin-top: 100%;
+  grid-template-columns: repeat(1, 1fr); /* En pantallas pequeñas, un pétalo por fila */
+  transform: scale(1.0); /* Escala completa para pantallas pequeñas */
 }
 
 }
